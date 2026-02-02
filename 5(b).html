@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Fixed Background Image Halfway Down</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: white;
+  text-align: center;
+  background-color: #333;
+}
+
+/* Tall content so we can scroll */
+.content {
+  height: 200vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Fixed background wrapper (Edge-safe) */
+.bg-wrapper {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 50vh;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* Actual background image */
+.background-image {
+  width: 100%;
+  height: 100%;
+  background-image: url('https://images.wallpapersden.com/image/download/the-mountain_bGZnbW6UmZqaraWkpJRobWllrWdma2U.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: scaleX(-1); /* Flip image */
+}
+
+/* Text above everything */
+.text-overlay {
+  font-size: 28px;
+  font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Fixed background -->
+<div class="bg-wrapper">
+  <div class="background-image"></div>
+</div>
+
+<!-- Scrollable content -->
+<div class="content">
+  <div class="text-overlay">
+    Scroll to see the effect. The background stays fixed!
+  </div>
+</div>
+
+</body>
+</html>
